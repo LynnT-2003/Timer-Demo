@@ -13,12 +13,12 @@ export default function Home() {
 
   useEffect(() => {
     // Set the target date and time for the event
-    const eventDate = new Date("2024-09-27T16:30:00"); // Adjust the date and time as needed
+    const eventDate = new Date("2024-09-27T16:30:00");
 
     const timerInterval = setInterval(() => {
-      const now: number = new Date().getTime(); // Get current time in milliseconds
-      const eventTime: number = eventDate.getTime(); // Get event time in milliseconds
-      const timeDifference: number = eventTime - now;
+      const now: number = new Date().getTime(); // in milliseconds
+      const eventTime: number = eventDate.getTime(); // in milliseconds
+      const timeDifference: number = eventTime - now; // in milliseconds
 
       if (timeDifference <= 0) {
         clearInterval(timerInterval);
@@ -66,15 +66,16 @@ export default function Home() {
             </p>
           </div>
         ) : (
-          <div className="md:mx-[25vw] mx-[20vw] md:[50vw] w-[80vw] md:w-[50vw] bg-slate-800 text-center">
+          <div className="w-full text-center">
             <h1 className="">Countdown to Event</h1>
-            <div className="flex ml-[8vw] md:ml-[11vw]">
-              <h1 className="md:text-3xl bg-slate-700">
-                {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m :{" "}
-              </h1>
+            <div className="flex justify-center">
               <h1 className="md:text-3xl">
-                {timeLeft.seconds}s : {timeLeft.milliseconds}ms
+                {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m :{" "}
+                {timeLeft.seconds}s :
               </h1>
+              <div className="md:w-[100px] w-[50px] ml-1">
+                <h1 className="md:text-3xl">{timeLeft.milliseconds}ms</h1>
+              </div>
             </div>
           </div>
         )}
