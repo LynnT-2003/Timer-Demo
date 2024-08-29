@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 
 export default function Home() {
+  // Set the target date and time for the event
+  const eventDate = new Date("2024-09-27T16:30:00");
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -12,9 +15,6 @@ export default function Home() {
   const [isTimeUp, setIsTimeUp] = useState(false);
 
   useEffect(() => {
-    // Set the target date and time for the event
-    const eventDate = new Date("2024-09-27T16:30:00");
-
     const timerInterval = setInterval(() => {
       const now: number = new Date().getTime(); // in milliseconds
       const eventTime: number = eventDate.getTime(); // in milliseconds
